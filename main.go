@@ -19,7 +19,7 @@ func init() {
 		var dns string = fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?charset=utf8", MysqlUser, MysqlPassword, MysqlHost, MysqlPort, MysqlDbName)
 		orm.RegisterDataBase("default", "mysql", dns)
 	} else {
-		SqliteDbname := beego.AppConfig.String("SqliteDbname")
+		SqliteDbname := beego.AppConfig.String("SqliteDbname") 
 		orm.RegisterDataBase("default", "sqlite3", SqliteDbname)
 	}
 
