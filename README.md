@@ -4,7 +4,21 @@
 
 这是基于beego的go语言个人blog系统,目前项目处于起步阶段!随时可能增减功能!欢迎大家一起来完善! let's go!
 
-## 安装 (install)
+个人博客sqlite已经可以满足,但为了提供更高的性能程序支持mysql和sqlite3
+
+## sqlite3版本
+
+1.下载源代码,然后把文件解压到$GOPATH/src/goblog
+
+2.配置./conf/app.conf 去掉mysql配置,SqliteDbName为sqlite路径
+
+3.进入 $GOPATH/src/goblog 执行 go install & go run main.go 
+
+(_注意:放到goblog/目录,不是github.com/目录,这个以后会完善_)
+
+4.在浏览器输入 http://localhost:8080
+
+## mysql版本安装 (install)
 
 1.下载源代码,然后把文件解压到$GOPATH/src/goblog
 
