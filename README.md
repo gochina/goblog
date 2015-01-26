@@ -2,7 +2,7 @@
 
 ##介绍
 
-这是基于beego的go语言个人blog系统,目前项目处于起步阶段!随时可能增减功能!
+这是基于beego的go语言个人blog系统,目前项目处于起步阶段!随时可能增减功能!欢迎大家一起来完善! let's go!
 
 ## 安装 (install)
 
@@ -18,10 +18,13 @@
 
 5.在浏览器输入 http://localhost:8080
 
-## 第三方包
+## 用到的第三方程序
 
-1. go get github.com/astaxie/beego
-2. go get github.com/go-sql-driver/mysql
+1. github.com/astaxie/beego
+2. github.com/go-sql-driver/mysql
+3. amazeui.org
+4. jquery.com
+5. www.handlebarsjs.com
  
 ##demo
 
