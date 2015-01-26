@@ -1,7 +1,7 @@
 # goblog
 ## 安装 (install)
 
-1.获取源代码 go get github.com/gochina/goblog
+1.下载源代码,然后把文件解压到$GOPATH/src/goblog
 
 2.配置./conf/app.conf mysql信息
 
