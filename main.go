@@ -11,7 +11,7 @@ import (
 
 func init() {
 	MysqlUser := beego.AppConfig.String("MysqlUser")
-	MysqlPassword := beego.AppConfig.String("MysqlPassword")
+	MysqlPassword := beego.AppConfig.String("MysqlPassword") 
 	MysqlHost := beego.AppConfig.String("MysqlHost")
 	MysqlPort := beego.AppConfig.String("MysqlPort")
 	MysqlDbName := beego.AppConfig.String("MysqlDbName")
