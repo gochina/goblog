@@ -6,7 +6,9 @@
 
 对于个人博客sqlite已经可以满足,但为了提供更高的性能程序支持mysql和sqlite3
 
-## sqlite3版本
+# 安装(install)
+
+## sqlite3数据库
 
 1.下载源代码,然后把文件解压到$GOPATH/src/goblog
 
@@ -18,7 +20,7 @@
 
 4.在浏览器输入 http://localhost:8080
 
-## mysql版本安装 (install)
+## mysql数据库
 
 1.下载源代码,然后把文件解压到$GOPATH/src/goblog
 
