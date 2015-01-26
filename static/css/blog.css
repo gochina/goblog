@@ -1,0 +1,31 @@
+@media only screen and (min-width:1200px){
+.blog-g-fixed{max-width:1200px}
+.am-popup{height:auto; max-width:640px;}
+}
+@media only screen and (min-width:641px){
+.blog-sidebar{font-size:1.4rem}
+.am-popup{height:auto}
+}
+.am-popup-hd{max-width:630px;}
+
+header{z-index:1;}
+.am-header-default{background-color:#3D3E3D;}
+.am-menu-default{background: #eee;}
+.am-footer-default{background-color:#3D3E3D;} 
+.am-navbar-nav{background-color:#666;}
+.am-link-muted{font-size:12px;}
+.am-offcanvas-bar{background:url('../img/profile-bg.png') no-repeat top #17222e;width:300px;}
+
+.ccc{color:#ccc;}
+.eee{color:#eee;}	
+
+.ucenter-bar{color:#dcdcdc;font-size:14px;font-family:Helvetica;line-height:30px;}
+.ucenter-bar .text{margin-top:1px}
+.ucenter-bar .sex{height:12px}
+.ucenter-bar .right-menu .am-g{background-color:;box-sizing:border-box;border-top:1px solid rgba(0,0,0,0.3);box-shadow:0 1px 0 rgba(255,255,255,0.05) inset;color:#ccc;height:44px;line-height:44px;position:relative;text-shadow:0 1px 0 rgba(0,0,0,0.5)}
+.ucenter-bar-line{box-sizing:border-box;border-top:1px solid rgba(0,0,0,0.3);box-shadow:0 1px 0 rgba(255,255,255,0.05) inset;color:#ccc;height:44px;line-height:44px;position:relative;text-shadow:0 1px 0 rgba(0,0,0,0.5);}
+
+#register-form,#login-form{ max-width:400px; margin:auto auto;}
+#register-form input,#login-form input{max-width:380px;}
+
+#edit-form .am-tab-panel{max-width:400px; margin:5% 10%}
