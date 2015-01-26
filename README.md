@@ -1,4 +1,9 @@
 # goblog
+
+##介绍
+
+这是基于beego的go语言个人blog系统,目前项目处于起步阶段!随时可能增减功能!
+
 ## 安装 (install)
 
 1.下载源代码,然后把文件解压到$GOPATH/src/goblog
