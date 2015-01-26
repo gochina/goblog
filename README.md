@@ -20,11 +20,11 @@
 
 ## 用到的第三方程序
 
-1. github.com/astaxie/beego
-2. github.com/go-sql-driver/mysql
-3. amazeui.org
-4. jquery.com
-5. www.handlebarsjs.com
+1. https://github.com/astaxie/beego
+2. https://github.com/go-sql-driver/mysql
+3. http://amazeui.org
+4. http://jquery.com
+5. http://www.handlebarsjs.com
  
 ##demo
 
