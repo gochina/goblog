@@ -4,7 +4,7 @@
 
 这是基于beego的go语言个人blog系统,目前项目处于起步阶段!随时可能增减功能!欢迎大家一起来完善! let's go!
 
-个人博客sqlite已经可以满足,但为了提供更高的性能程序支持mysql和sqlite3
+对于个人博客sqlite已经可以满足,但为了提供更高的性能程序支持mysql和sqlite3
 
 ## sqlite3版本
 
