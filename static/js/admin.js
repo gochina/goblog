@@ -89,7 +89,6 @@ function blog_edit(id){
 		var obj = $("#list-blog-admin-template");
 		var template = Handlebars.compile(obj.html());
 		if(rs.Status){
-			$.AMUI.store.clear();//清除浏览器缓存
 			rs.Data.indexpage = 0; //不是首页
 			var html = template(rs.Data);
 		}else{

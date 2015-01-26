@@ -241,7 +241,7 @@ var user = {
 		var sex = obj.find("[name=sex]:checked").val();
 		var uid = cookie.get("uid");
 		var utoken = cookie.get("utoken");
-		var url = "/api/user?uid=" + uid + "&utoken=" + utoken;
+		var url = "/api/user?uid="+uid+"&utoken="+utoken;
 		$.ajax({
 			url: url,
 			data: {
@@ -260,9 +260,5 @@ var user = {
 				alert(rs.Message)
 			}
 		});
-	},
-	clearCache: function(uid) {
-		var key = "cache_user_" + uid;
-		$.AMUI.store.set(key, null);
 	}
 }

@@ -2,7 +2,6 @@ package models
 
 import (
 	"github.com/astaxie/beego/orm"
-	_ "github.com/go-sql-driver/mysql"
 	"strconv"
 	"strings"
 	"time"
@@ -28,7 +27,7 @@ func (this *Comment) Search(where map[string]int64, order map[string]string, pag
 		data, data1                       []orm.Params
 		rs                                Json
 		nextPage, prePage, flag, totalNum int64
-		offset                            int64 = 20
+		offset                            int64 = 2
 		orderby, whereSql                 string
 	)
 

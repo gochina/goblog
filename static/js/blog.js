@@ -193,9 +193,7 @@ function uploadCallBack(path, status, message) {
 		return false;
 	}
 	var path = path;
-	var uid = cookie.get("uid");
-	var utoken = cookie.get("utoken");
-	var url = "/api/user?do=avatar&uid="+uid+"&utoken="+utoken;
+	var url = "/api/user?do=avatar";
 	if (path.indexOf("://") > 0) {
 		path += "!avatar"
 	}
@@ -208,7 +206,6 @@ function uploadCallBack(path, status, message) {
 		success: function(rs) {
 			if (rs.Status == true) {
 				$('#avatar').find('img').attr('src', path);
-				user.clearCache(uid);
 			}
 			alert(rs.Message)
 		}
@@ -276,8 +273,10 @@ function getRightMenuData(nocache) {
 		$.get(url, function(rs) {
 			rs.atoken = atoken;
 			store.set(key, rs);
-			if (!rs.Data.avatar) {
-				rs.Data.avatar = "/static/img/avatar.gif"
+			if (rs.Status == true) {
+				if (!rs.Data.avatar) {
+					rs.Data.avatar = "/static/img/avatar.gif"
+				}
 			}
 			$('#ucenter-html').html(template(rs));
 		});

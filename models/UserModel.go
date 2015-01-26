@@ -3,8 +3,8 @@ package models
 import (
 	"crypto/md5"
 	"encoding/hex"
+	"fmt"
 	"github.com/astaxie/beego/orm"
-	_ "github.com/go-sql-driver/mysql"
 	"regexp"
 	"strconv"
 	"strings"
@@ -20,14 +20,14 @@ type Json struct {
 }
 
 type User struct {
-	Uid        int64 `orm:"pk"`
+	Uid        int64 `orm:"auto"`
 	Username   string
 	Password   string
 	Email      string
 	Phone      string
 	Qq         string
-	Createtime string
-	Updatetime string
+	Createtime string `orm:"auto_now_add;type(datetime)"`
+	Updatetime string `orm:"auto_now_add;type(datetime)"`
 	Sex        string
 	Avatar     string
 }
@@ -40,17 +40,22 @@ func init() {
 //登录
 func (this *User) Login(username string, password string) Json {
 	o := orm.NewOrm()
+	orm.Debug = true
 	var (
 		rs   Json = Json{Status: true}
-		data []orm.Params
+		data User
 	)
 
-	num, _ := o.Raw("SELECT * FROM user WHERE (username = ? or email=?) and password=?", username, username, this.MakePassword(password)).Values(&data)
-	if num > 0 {
+	//拼查询条件
+	cond := orm.NewCondition()
+	where := cond.And("password", this.MakePassword(password)).AndCond(cond.And("username", username).Or("email", username))
+	err := o.QueryTable("user").Limit(1).SetCond(where).One(&data)
+
+	if err == nil {
 		rs.Message = "登录成功"
 		tmp := make(map[string]interface{})
-		tmp["uid"], _ = strconv.ParseInt(data[0]["uid"].(string), 10, 0)
-		tmp["username"] = username
+		tmp["uid"] = data.Uid
+		tmp["username"] = data.Username
 		rs.Data = tmp
 	} else {
 		rs.Status = false
@@ -116,6 +121,7 @@ func (this *User) Register(data User) Json {
 		}
 	}
 
+	user.Uid = 0
 	user.Username = data.Username
 	user.Password = this.MakePassword(data.Password)
 	user.Email = data.Email
@@ -142,32 +148,29 @@ func (this *User) Register(data User) Json {
 
 }
 
-// 按用户名查找用户
-func (this *User) GetUserForName(key string) Json {
-	o := orm.NewOrm()
+// 按uid查找用户
+func (this *User) GetUserForUid(uid int64) Json {
 	var (
 		data User
 		rs   Json
 	)
-
-	data = User{Username: key}
-	o.Read(&data, "username")
-	rs.Data = data
-	return rs
-}
-
-// 按uid查找用户
-func (this *User) GetUserForUid(uid int64) Json {
-	var (
-		maps []orm.Params
-		rs   Json
-	)
 	o := orm.NewOrm()
 
-	o.Raw("SELECT uid,username,sex,email,phone,qq,createtime,updatetime,avatar FROM user where uid=?", uid).Values(&maps)
-	if len(maps) > 0 {
+	err := o.QueryTable("user").Limit(1).Filter("uid", uid).One(&data)
+	if err == nil {
+		tmp := make(map[string]interface{})
+		tmp["uid"] = data.Uid
+		tmp["username"] = data.Username
+		tmp["sex"] = data.Sex
+		tmp["email"] = data.Email
+		tmp["phone"] = data.Phone
+		tmp["avatar"] = data.Avatar
+		tmp["qq"] = data.Qq
+		tmp["createtime"] = data.Createtime
+		tmp["updatetime"] = data.Updatetime
+		fmt.Println(tmp)
 		rs.Status = true
-		rs.Data = maps[0]
+		rs.Data = tmp
 	} else {
 		rs.Status = false
 	}
