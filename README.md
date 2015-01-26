@@ -17,4 +17,9 @@
 
 1. go get github.com/astaxie/beego
 2. go get github.com/go-sql-driver/mysql
+ 
+##demo
+
+http://goblog.tangfengqiao.cn
+
 
